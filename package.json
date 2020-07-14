@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
-    "start": "NODE_ENV=production node dist/index.js",
+    "heroku-postbuild": "npm run build",
+    "start": "NODE_ENV=production node dist/index.js -p $PORT",
     "tsc": "tsc --project tsconfig.server.json --noEmit && tsc --noEmit",
     "lint": "eslint './server/**/*.{ts,tsx}' './pages/**/*.{ts,tsx}' --quiet",
     "lint:fix": "npm run lint -- --fix"
