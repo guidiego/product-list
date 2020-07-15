@@ -1,6 +1,6 @@
 .search-input {
   width: 100%;
-  max-width: 350px;
+  max-width: 280px;
   height: 40px;
   position: relative;
   display: flex;
@@ -12,6 +12,17 @@
   border-color: rgb(153, 137, 124);
   border-image: initial;
   border-radius: 8px;
+  overflow: hidden;
+
+  &-input {
+    height: 100%;
+    width: 100%;
+    border: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
 
   &-icon {
     width: 28px;

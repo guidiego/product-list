@@ -1,15 +1,50 @@
 .header {
-  position: fixed;
+  position: sticky;
   width: 100%;
+  background: #FFF;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
   z-index: 80;
   top: 0px;
   right: 0px;
   left: 0px;
-  padding: 10px;
 
   &-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+    padding: 10px;
+
+    &-logo {
+      color: rgb(128, 108, 92);
+      font-weight: 800;
+    }
+
+    &-search {
+      display: none;
+    }
+  }
+
+  &-sub-mobile {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .header {
+    &-container {
+      justify-content: space-between;
+
+      &-search {
+        display: block;
+      }
+    }
+
+    &-sub-mobile {
+      display: none;
+    }
+  }
+}
+

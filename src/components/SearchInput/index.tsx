@@ -7,7 +7,7 @@ export class SearchInput extends Component {
     return (
       <label className={styles['search-input']}>
         <SearchIcon className={styles['search-input-icon']} />
-        <input />
+        <input className={styles['search-input-input']} placeholder="Buscar produtos" />
       </label>
     );
   }

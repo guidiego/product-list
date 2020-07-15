@@ -5,7 +5,7 @@ on:
     branches: master
 
 jobs:
-  test:
+  quality:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,3 +18,14 @@ jobs:
 
       - name: Typecheck
         run: yarn tsc
+
+      - name: Test with Coverage
+        run: yarn test:cov
+  codecov:
+    runs-on: ubuntu-latest
+    needs: quality
+  - uses: actions/checkout@master
+  - uses: codecov/codecov-action@v1
+    with:
+      token: ${{ secrets.CODECOV_TOKEN }}
+      file: ./coverage/clover.xml
