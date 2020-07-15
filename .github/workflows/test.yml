@@ -24,8 +24,9 @@ jobs:
   codecov:
     runs-on: ubuntu-latest
     needs: quality
-  - uses: actions/checkout@master
-  - uses: codecov/codecov-action@v1
-    with:
-      token: ${{ secrets.CODECOV_TOKEN }}
-      file: ./coverage/clover.xml
+    steps:
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage/clover.xml
