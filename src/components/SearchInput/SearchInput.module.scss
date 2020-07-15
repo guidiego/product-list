@@ -1,0 +1,21 @@
+.search-input {
+  width: 100%;
+  max-width: 350px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(153, 137, 124);
+  border-image: initial;
+  border-radius: 8px;
+
+  &-icon {
+    width: 28px;
+    color: rgb(67, 62, 102);
+    margin: 0px 8px;
+  }
+}

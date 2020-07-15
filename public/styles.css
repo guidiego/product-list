@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 930px;
+  }
+}
+
+@media screen and (min-width: 1240px) {
+  .container {
+    max-width: 1180px;
+  }
+}

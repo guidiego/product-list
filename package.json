@@ -19,12 +19,16 @@
   },
   "dependencies": {
     "@koa/router": "^9.3.1",
+    "classnames": "^2.2.6",
     "koa": "^2.13.0",
+    "koa-static": "^5.0.0",
     "next": "9.4.4",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "sass": "^1.26.10"
   },
   "devDependencies": {
+    "@svgr/webpack": "^5.4.0",
     "@types/enzyme": "^3.10.5",
     "@types/jest": "^26.0.4",
     "@types/node": "^14.0.23",

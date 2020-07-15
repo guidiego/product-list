@@ -13,6 +13,12 @@ app.prepare().then(() => {
   const router = new Router();
 
   router.use('/api', api.routes());
+  // router.get('/public/(.*)', async (ctx) => {
+  //   const filePath = path.resolve(__dirname, `..${ctx.req.url}`);
+  //   app.serveStatic(ctx.req, ctx.res, ctx.req.url).then((some) => {
+  //     console.log(some);
+  //   });
+  // });
 
   router.all('(.*)', async (ctx) => {
     await handle(ctx.req, ctx.res);
@@ -25,6 +31,7 @@ app.prepare().then(() => {
   });
 
   server.use(router.routes());
+
   server.listen(port, () => {
     console.log(`> Ready on http://localhost:${port}`);
   });
