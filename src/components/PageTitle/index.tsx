@@ -1,6 +1,6 @@
 import React from 'react';
-import cx from 'classnames';
 import styles from './PageTitle.module.scss';
+import PropTypes from 'prop-types';
 
 type Props = {
   title?: string;
@@ -13,5 +13,9 @@ export const PageTitle: React.FC<Props> = ({ title }) => (
     </div>
   </div>
 );
+
+PageTitle.propTypes = {
+  title: PropTypes.string,
+};
 
 export default PageTitle;
