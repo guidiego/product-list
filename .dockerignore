@@ -1,0 +1,12 @@
+jest.*
+.eslintrc
+.prettierrc
+.editorconfig
+.gitignore
+LICENSE
+node_modules
+.github
+coverage
+dist
+.next
+__tests__
