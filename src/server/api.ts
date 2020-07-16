@@ -1,11 +1,8 @@
 import Router from '@koa/router';
+import product from './product/endpoint';
 
 const router = new Router();
 
-const hello = (ctx) => {
-  ctx.body = { name: 'John Doe' };
-};
-
-router.get('/hello', hello);
+router.use('/product', product.routes());
 
 export default router;
