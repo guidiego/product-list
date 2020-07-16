@@ -1,0 +1,16 @@
+.page-title {
+  background: #806c5c1f;
+  color: #564436;
+
+  &-text {
+    padding: 40px 10px;
+    font-weight: 400;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .page-title-text {
+    text-align: left;
+  }
+}
