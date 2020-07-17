@@ -30,3 +30,37 @@
     margin: 0px 8px;
   }
 }
+
+.search-input-wrap {
+  position: relative;
+}
+
+.search-input-suggestions {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  border: 2px solid #433e66;
+  border-radius: 5px;
+  width: 100%;
+  padding-top: 37px;
+  color: #433e66;
+  z-index: 3;
+
+  &-item {
+    background: #FFF;
+    padding: 10px 0px 10px 40px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+
+    &:hover {
+      background: #f9f9f9;
+      cursor: pointer;
+    }
+  }
+
+  & + .search-input {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
