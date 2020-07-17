@@ -4,8 +4,9 @@ import qs from 'querystring';
 import Header from '~/components/Header';
 import PageTitle from '~/components/PageTitle';
 import ProductList from '~/components/ProductList';
-import { ProductData } from '~/types/entities';
 import Pagination from '~/components/Pagination';
+import TabList, { Tab } from '~/components/TabList';
+import { ProductData } from '~/types/entities';
 
 type Props = {
   title?: string;
@@ -36,6 +37,9 @@ export class Home extends Component<Props> {
         <Header />
         <PageTitle title={this.props.title} />
         <main className="container">
+          <TabList>
+            <Tab text={`${this.props.total} produtos encontrados`} />
+          </TabList>
           <ProductList products={this.props.products} />
         </main>
         <div className="container">

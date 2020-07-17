@@ -1,0 +1,16 @@
+.tab-list {
+  display: flex;
+  padding: 20px 45px 10px;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 5px 10px;
+  }
+}
+
+.tab {
+  color: #383839;
+  border-bottom: 3px solid #dfbe7f;
+  padding: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
