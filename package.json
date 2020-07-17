@@ -9,7 +9,7 @@
     "dev": "yarn dotenv -e ./.env nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
     "heroku-postbuild": "npm run build",
-    "start": "node dist/index.js -p $PORT",
+    "start": "node ./dist/server/index.js -p $PORT",
     "tsc": "tsc --project tsconfig.server.json --noEmit && tsc --noEmit",
     "lint": "eslint './src/server/**/*.{ts,tsx}' './src/pages/**/*.{ts,tsx}' './src/components/**/*.{ts,tsx}' --quiet",
     "lint:fix": "npm run lint -- --fix",
