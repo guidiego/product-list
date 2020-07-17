@@ -13,7 +13,7 @@ type Props = {
 
 export class Home extends Component<Props> {
   static getInitialProps = async (ctx) => {
-    const uri = `http://${ctx.req.headers.host}`;
+    const uri = `${process.env.PROTOCOL}://${ctx.req.headers.host}`;
     const res = await fetch(uri + '/api/product?' + qs.encode(ctx.query));
     const props = await res.json();
     return { title: ctx.query.q, ...props };
