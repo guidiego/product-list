@@ -7,7 +7,7 @@ export const Header: React.FC = () => (
   <>
     <div className={styles.header}>
       <div className={cx(styles['header-container'], 'container')}>
-        <div className={styles['header-container-logo']}>Productify</div>
+        <div className={styles['header-container-logo']}>mmartan</div>
         <div className={styles['header-container-search']}>
           <SearchInput />
         </div>

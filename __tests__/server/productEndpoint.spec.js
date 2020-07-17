@@ -27,7 +27,7 @@ describe('server/product/endpoint', () => {
     const ctx = { originalUrl };
     await getProducts(ctx);
 
-    expectPage(ctx, {}, 0, 10);
+    expectPage(ctx, {}, 0, 12);
   });
 
   it('should exec getProducts with page', async () => {
@@ -38,7 +38,7 @@ describe('server/product/endpoint', () => {
     const ctx = { originalUrl };
     await getProducts(ctx);
 
-    expectPage(ctx, {}, 10, 10);
+    expectPage(ctx, {}, 12, 12);
   });
 
   it('should exec getProducts with limit', async () => {
@@ -84,7 +84,7 @@ describe('server/product/endpoint', () => {
     const query = createMongoQ(q)
     await getProducts(ctx);
 
-    expectPage(ctx, query, 0, 10);
+    expectPage(ctx, query, 0, 12);
   });
 
   it('should exec getProducts with page and q', async () => {
@@ -97,7 +97,7 @@ describe('server/product/endpoint', () => {
     const query = createMongoQ(q)
     await getProducts(ctx);
 
-    expectPage(ctx, query, 10, 10);
+    expectPage(ctx, query, 12, 12);
   });
 
   it('should exec getProducts with all params', async () => {

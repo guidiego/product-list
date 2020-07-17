@@ -1,16 +1,7 @@
 import { Document, model, Schema } from 'mongoose';
+import { ProductData } from '~/types/entities';
 
-interface IProduct extends Document {
-  title: string;
-  description: string;
-  isNewRelease?: boolean;
-  keywords: string;
-  brand: {
-    id: number;
-    name: string;
-    initials: string;
-  };
-}
+interface IProduct extends ProductData, Document {}
 
 const ProductSchema = new Schema({
   title: {
@@ -23,7 +14,6 @@ const ProductSchema = new Schema({
   },
   keywords: {
     type: String,
-    required: true,
   },
   isNewRelease: {
     type: Boolean,
@@ -41,6 +31,10 @@ const ProductSchema = new Schema({
   priceTo: {
     type: Number,
     required: true,
+  },
+  photoStill: {
+    type: String,
+    default: '',
   },
 });
 

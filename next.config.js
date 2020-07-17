@@ -1,4 +1,7 @@
 module.exports = {
+  env: {
+    STATIC_CACHE_URL: process.env.STATIC_CACHE_URL,
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

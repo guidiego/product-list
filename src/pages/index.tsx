@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import qs from 'querystring';
+
 import Header from '~/components/Header';
 import PageTitle from '~/components/PageTitle';
-import qs from 'querystring';
+import ProductList from '~/components/ProductList';
+import { ProductData } from '~/types/entities';
 
 type Props = {
   title?: string;
+  products: ProductData[];
 };
 
 export class Home extends Component<Props> {
@@ -20,7 +24,9 @@ export class Home extends Component<Props> {
       <>
         <Header />
         <PageTitle title={this.props.title} />
-        <main style={{ height: '2000px' }} />
+        <main className="container">
+          <ProductList products={this.props.products} />
+        </main>
       </>
     );
   }

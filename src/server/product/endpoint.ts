@@ -14,7 +14,7 @@ export const createMongoQ = (q) => {
 export const getProducts = async (ctx) => {
   const qString = ctx.originalUrl.split('?')[1] || '';
   const qsParsed = qs.decode(qString);
-  const limit = qsParsed.limit ? parseInt(qsParsed.limit as string, 10) : 10;
+  const limit = qsParsed.limit ? parseInt(qsParsed.limit as string, 10) : 12;
   const page = qsParsed.p ? parseInt(qsParsed.p as string, 10) : 1;
   const skip = limit * (page - 1);
   const query = createMongoQ(qsParsed.q);
