@@ -1,0 +1,61 @@
+.pagination-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.limiter {
+  min-width: 180px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+
+  &-item {
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #433e66;
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+
+    & > a {
+      color: #6d6e70;
+      text-decoration: none;
+    }
+
+    &-active, &-block {
+      position: relative;
+
+      &:after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+        cursor: initial;
+      }
+    }
+
+    &-block {
+      background: #cbcbcb;
+      border-color: #cbcbcb;
+
+      & > a {
+        color: #9f9a9a;
+      }
+    }
+
+    &-active {
+      background: #433e66;
+
+      & > a {
+        color: #FFF;
+      }
+    }
+  }
+}

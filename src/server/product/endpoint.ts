@@ -21,7 +21,7 @@ export const getProducts = async (ctx) => {
   const products = await Product.find(query as any, {}, { skip, limit });
   const total = await Product.countDocuments(query as any);
 
-  ctx.body = { total, limit, products };
+  ctx.body = { total, limit, page, products };
 };
 
 router.get('/', getProducts);
