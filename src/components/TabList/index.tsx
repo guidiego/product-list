@@ -14,7 +14,7 @@ export const Tab: React.FC<TabProps> = ({ text }) => (
 );
 
 type TabListProps = {
-  children: React.ElementType<React.FC<TabProps>> | React.ElementType<React.FC<TabProps>>[];
+  children: React.ReactNode;
 };
 
 export const TabList: React.FC<TabListProps> = ({ children }) => <div className={styles['tab-list']}>{children}</div>;
@@ -24,7 +24,7 @@ Tab.propTypes = {
 };
 
 TabList.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.node,
 };
 
 export default TabList;
