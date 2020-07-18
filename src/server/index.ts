@@ -34,8 +34,7 @@ app
     });
 
     server.use(router.routes());
-    server.use(koaConnect(compression()))
-
+    server.use(koaConnect(compression()));
 
     server.listen(port, () => {
       console.log(`> Ready on http://localhost:${port}`);
