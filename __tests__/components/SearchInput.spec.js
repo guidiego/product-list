@@ -74,6 +74,20 @@ describe('components/SearchInput', () => {
     });
   });
 
+  it('should exec goToQuery with addQ', () => {
+    const q = 'foo';
+    const p = 1;
+    const router = { query: { limit: 10 }, pathname: '/foo', push: jest.fn() };
+    const wrap = shallow(<SearchInput router={router}/>);
+
+    wrap.instance().goToQuery(q, { p });
+
+    expect(router.push).toHaveBeenCalledWith({
+      pathname: router.pathname,
+      query: { ...router.query, q, p },
+    });
+  });
+
   it('should exec onSubmit correctly', () => {
     const q = 'foo';
     const goToQueryFake = jest.fn();
@@ -133,7 +147,7 @@ describe('components/SearchInput', () => {
 
     const q = 'a';
     wrap.instance().selectVal(q);
-    expect(goToQueryFake).toHaveBeenCalledWith(q);
+    expect(goToQueryFake).toHaveBeenCalledWith(q, { p: 1 });
     expect(setStateFake).toHaveBeenCalledWith({ q });
   });
 });

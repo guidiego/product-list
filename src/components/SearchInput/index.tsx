@@ -18,9 +18,9 @@ export class SearchInput extends Component<Props, State> {
     this.resetSuggestions = this.resetSuggestions.bind(this);
   }
 
-  goToQuery(q) {
+  goToQuery(q, addQ = {}) {
     const { router } = this.props;
-    const query = { ...router.query, q };
+    const query = { ...router.query, q, ...addQ };
     router.push({ pathname: router.pathname, query });
   }
 
@@ -31,7 +31,7 @@ export class SearchInput extends Component<Props, State> {
 
   selectVal(q) {
     this.setState({ q });
-    this.goToQuery(q);
+    this.goToQuery(q, { p: 1 });
   }
 
   onChange(e) {
