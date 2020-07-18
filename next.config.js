@@ -1,3 +1,5 @@
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+
 module.exports = {
   env: {
     STATIC_CACHE_URL: process.env.STATIC_CACHE_URL,
@@ -11,6 +13,19 @@ module.exports = {
       },
       use: ['@svgr/webpack'],
     });
+
+    config.plugins.push(
+      new SWPrecacheWebpackPlugin({
+        verbose: true,
+        staticFileGlobsIgnorePatterns: [/\.next\//],
+        runtimeCaching: [
+          {
+            handler: 'networkFirst',
+            urlPattern: /^https?.*/
+          }
+        ]
+      })
+    );
 
     return config;
   },

@@ -1,0 +1,14 @@
+{
+  "name": "Busca mmartan",
+  "short_name": "Busca mmartan",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#806c5c",
+  "description": "A simple mmartan search page copy",
+  "icons": [{
+    "src": "/favicon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

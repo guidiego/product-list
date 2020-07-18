@@ -3,6 +3,7 @@ import Router from '@koa/router';
 import next from 'next';
 import compression from 'compression';
 import koaConnect from 'koa-connect';
+import path from 'path';
 
 import api from './api';
 import mongoConnect from './db';
@@ -22,6 +23,11 @@ app
     const router = new Router();
 
     router.use('/api', api.routes());
+
+    router.get('/service-worker.js', async (ctx) => {
+      const filePath = path.resolve(__dirname, '.next', './service-worker.js');
+      app.serveStatic(ctx.req, ctx.res, filePath);
+    });
 
     router.all('(.*)', async (ctx) => {
       await handle(ctx.req, ctx.res);
