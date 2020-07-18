@@ -5,11 +5,11 @@ import ProductList, { Product } from '~/components/ProductList';
 import { priceFormat } from '~/utils/priceFormat';
 
 describe('components/ProductList', () => {
-    const ProductFactory = (_id, title, priceFrom, priceTo, photoStill, isNewRelease) => ({
-      _id, title, priceFrom, priceTo, photoStill, isNewRelease
+    const ProductFactory = (_id, title, priceFrom, priceTo, photoStill, isNewRelease, brand = {}) => ({
+      _id, title, priceFrom, priceTo, photoStill, isNewRelease, brand
     });
 
-    const p1 = ProductFactory("AA1", "foo", 90, 90, "bar", false);
+    const p1 = ProductFactory("AA1", "foo", 90, 90, "bar", false, { initials: 'CM' });
     const p2 = ProductFactory("BB2", "fizz", 100, 50, "fuzz", true);
     const p3 = ProductFactory("CC3", "foobar", 80, 80, "fizzfuzz", true);
     const products = [p1, p2, p3];
@@ -49,6 +49,7 @@ describe('components/ProductList', () => {
     const wrap = shallow(<Product {...p1} />);
 
     defaultProductCheck(wrap, p1);
+    expect(wrap.find('.product-thumb Brand')).toExist();
     expect(wrap.find('.product-info-old-price')).toHaveText('');
     expect(wrap.find('.product-thumb-discount')).not.toExist();
     expect(wrap.find('.product-thumb-new')).not.toExist();

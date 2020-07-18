@@ -4,17 +4,35 @@ import PropTypes from 'prop-types';
 import { ProductData } from '~/types/entities';
 import { priceFormat } from '~/utils/priceFormat';
 
+import CasaMoysesLogo from './channels/casa-moyses.svg';
+
 import styles from './ProductList.module.scss';
 
 type Props = {
   products: ProductData[];
 };
 
+const Brand = ({ initials }: { initials: string }) => {
+  if (initials === 'CM') {
+    return (
+      <div className={styles['brand']}>
+        <CasaMoysesLogo />
+      </div>
+    );
+  }
+
+  return null;
+};
+
+Brand.propTypes = {
+  initials: PropTypes.string,
+};
+
 /**
  * I won't create Product component out of it because didn't had a
  * case for that test that implicate in use it in another place single
  */
-export const Product = ({ title, priceFrom, priceTo, photoStill, isNewRelease }: ProductData) => {
+export const Product = ({ title, priceFrom, priceTo, photoStill, isNewRelease, brand }: ProductData) => {
   const hasDiscount = priceFrom != priceTo;
   const discount = 100 - ((priceTo as any) / (priceFrom as any)) * 100;
   const baseUrl = process.env.STATIC_CACHE_URL;
@@ -24,6 +42,7 @@ export const Product = ({ title, priceFrom, priceTo, photoStill, isNewRelease }:
       <div className={styles['product-thumb']} style={{ backgroundImage: `url('${baseUrl}${photoStill}')` }}>
         {!hasDiscount ? null : <div className={styles['product-thumb-discount']}>{Math.round(discount)}% off</div>}
         {!hasDiscount && isNewRelease ? <div className={styles['product-thumb-new']}>New</div> : null}
+        <Brand initials={brand.initials} />
       </div>
       <div className={styles['product-info']}>
         <h2 className={styles['product-info-title']}>{title}</h2>
