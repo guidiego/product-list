@@ -10,6 +10,7 @@ const App = ({ Component, pageProps }: Props): React.ReactElement => (
   <>
     <Head>
       <title>Busca - mmartan</title>
+      <meta name="description" content="Busca de produtos no site da mmartan" />
       <link rel="icon" href="/favicon.png" />
       <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;800&display=swap"

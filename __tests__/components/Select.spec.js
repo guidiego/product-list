@@ -15,6 +15,7 @@ describe('components/Select', () => {
     const wrap = shallow(<Select options={options} />);
 
     expect(wrap).toHaveClassName('select');
+    expect(wrap.find('.sr-only')).toHaveText('Selecionar opção');
     expect(wrap.find('.select-placeholder')).toHaveText(`${options[0]} Items`);
     expect(wrap.find('select option')).toHaveLength(options.length);
     options.forEach(
@@ -34,6 +35,7 @@ describe('components/Select', () => {
     wrap.instance().setState = setStateFake;
     wrap.instance().onChange({ target: { value }});
 
+    expect(wrap.find('.sr-only')).toHaveText('Selecionar opção');
     expect(onChange).toHaveBeenCalledWith(value);
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(setStateFake).toHaveBeenCalledWith({ value });

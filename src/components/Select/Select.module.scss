@@ -12,7 +12,8 @@
   border-radius: 8px;
   overflow: hidden;
 
-  &-input {
+  &-input, &-input-label {
+    cursor: pointer;
     font-size: 16px;
     position: absolute;
     left: 0;
@@ -20,5 +21,16 @@
     opacity: 0;
     bottom: 0;
     right: 0;
+  }
+
+  &-input {
+    width: 100%;
+  }
+
+  &-arrow {
+    font-size: 8px;
+    top: calc(50% - 4px);
+    position: absolute;
+    right: 15px;
   }
 }

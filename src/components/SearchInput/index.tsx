@@ -84,6 +84,7 @@ export class SearchInput extends Component<Props, State> {
             onChange={this.onChange}
             onBlur={this.resetSuggestions}
           />
+          <span className="sr-only">Buscar Produtos</span>
         </label>
       </form>
     );

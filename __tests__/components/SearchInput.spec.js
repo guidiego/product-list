@@ -22,6 +22,7 @@ describe('components/SearchInput', () => {
     const wrap = shallow(<SearchInput router={router}/>);
     expect(wrap.find('label')).toHaveClassName('search-input');
     expect(wrap).toContainMatchingElement('input');
+    expect(wrap.find('.sr-only')).toHaveText('Buscar Produtos');
     expect(wrap.find('.search-input-suggestions')).not.toExist();
   });
 
@@ -31,6 +32,7 @@ describe('components/SearchInput', () => {
     const wrap = shallow(<SearchInput router={router}/>);
     expect(wrap.find('label')).toHaveClassName('search-input');
     expect(wrap).toContainMatchingElement('input');
+    expect(wrap.find('.sr-only')).toHaveText('Buscar Produtos');
     expect(wrap.find('input')).toHaveProp('value', q);
     expect(wrap.find('.search-input-suggestions')).not.toExist();
   });
