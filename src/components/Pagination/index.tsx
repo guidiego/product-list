@@ -60,19 +60,19 @@ const createLinkProps = ({ limit, q }) => {
   return q ? { ...props, q } : props;
 };
 
+export const onChange = (router) => (limit) => {
+  router.push({ pathname: router.pathname, query: { ...router.query, limit, p: 1 } });
+};
+
 export const Pagination: React.FC<Props> = (props) => {
   const router = useRouter();
   const linkProps = createLinkProps(props);
   const { currentPage, pages, nextPage, hasNext, prevPage, hasPrev } = getPageOpts(props);
 
-  const onChange = (limit) => {
-    router.push({ pathname: router.pathname, query: { ...router.query, limit, p: 1 } });
-  };
-
   return (
     <div className={styles['pagination-wrap']}>
       <div className={styles['limiter']}>
-        <Select options={LIMIT_OPTIONS} onChange={onChange} />
+        <Select options={LIMIT_OPTIONS} onChange={onChange(router)} />
       </div>
       <ul className={styles['pagination']}>
         <li className={cx(styles['pagination-item'], { [styles['pagination-item-block']]: !hasPrev })}>

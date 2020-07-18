@@ -23,7 +23,7 @@ export class Select extends Component<Props, State> {
   render(): React.ReactElement {
     return (
       <div className={styles['select']}>
-        <div>{this.state.value} Items</div>
+        <div className={styles['select-placeholder']}>{this.state.value} Items</div>
         <select className={styles['select-input']} onChange={this.onChange}>
           {this.props.options.map((v) => (
             <option value={v} key={`opt=${v}`}>
